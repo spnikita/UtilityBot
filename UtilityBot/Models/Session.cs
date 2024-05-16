@@ -5,6 +5,6 @@
     /// </summary>
     internal class Session
     {
-        public string LanguageCode { get; set; }
+        public string TextMessageHandlerType { get; set; }
     }
 }

@@ -4,6 +4,9 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot;
+using UtilityBot.Configuration;
+using UtilityBot.Controllers;
+using UtilityBot.Services;
 
 namespace UtilityBot
 {
@@ -39,7 +42,7 @@ namespace UtilityBot
             services.AddSingleton(BuildAppSettings());
             services.AddSingleton<ITelegramBotClient>(provider => new TelegramBotClient(appSettings.BotToken));
             services.AddSingleton<IStorage, MemoryStorage>();
-            services.AddSingleton<IFileHandler, AudioFileHandler>();
+            //services.AddSingleton<IFileHandler, AudioFileHandler>();
             // Регистрируем постоянно активный сервис бота
             services.AddHostedService<Bot>();
         }

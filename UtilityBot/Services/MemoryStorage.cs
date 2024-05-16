@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Concurrent;
 using UtilityBot.Models;
 
 namespace UtilityBot.Services
 {
+    /// <summary>
+    /// Хранилище данных сессии пользователей в памяти
+    /// </summary>
     internal class MemoryStorage : IStorage
     {
         /// <summary>
@@ -26,7 +26,7 @@ namespace UtilityBot.Services
                 return _sessions[chatId];
 
             // Создаем и возвращаем новую, если такой не было
-            var newSession = new Session() { LanguageCode = "ru" };
+            var newSession = new Session() { TextMessageHandlerType = "message_length" };
             _sessions.TryAdd(chatId, newSession);
             return newSession;
         }        
